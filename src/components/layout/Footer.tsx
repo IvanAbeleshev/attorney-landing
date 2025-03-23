@@ -1,7 +1,7 @@
 // src/components/layout/Footer.tsx
 import React from 'react';
 import Link from 'next/link';
-import { FaYoutube, FaLinkedinIn, FaFacebookF, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
+import { FaYoutube, FaLinkedinIn, FaFacebookF, FaInstagram, FaTiktok, FaTwitter, FaTelegramPlane } from 'react-icons/fa';
 import Image from 'next/image';
 
 const Footer: React.FC = () => {
@@ -89,7 +89,16 @@ const Footer: React.FC = () => {
           
           <div className="flex flex-wrap gap-4">
             <a 
-              href="#" 
+              href="https://t.me/Bykov_Ihor" 
+              className="
+                w-10 h-10 bg-white/10 rounded-full flex items-center justify-center
+                transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
+              "
+            >
+              <FaTelegramPlane className="text-white" />
+            </a>
+            <a 
+              href="https://www.youtube.com/@bykov_ihor" 
               className="
                 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center
                 transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
@@ -99,7 +108,7 @@ const Footer: React.FC = () => {
             </a>
             
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/ihor-bykov/" 
               className="
                 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center
                 transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
@@ -109,7 +118,7 @@ const Footer: React.FC = () => {
             </a>
             
             <a 
-              href="#" 
+              href="https://www.facebook.com/bykov.i.advocate" 
               className="
                 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center
                 transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
@@ -119,7 +128,7 @@ const Footer: React.FC = () => {
             </a>
             
             <a 
-              href="#" 
+              href="https://www.instagram.com/ihor_bykov/" 
               className="
                 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center
                 transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
@@ -128,7 +137,7 @@ const Footer: React.FC = () => {
               <FaInstagram className="text-white" />
             </a>
             
-            <a 
+            {/* <a 
               href="#" 
               className="
                 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center
@@ -136,9 +145,9 @@ const Footer: React.FC = () => {
               "
             >
               <FaTiktok className="text-white" />
-            </a>
+            </a> */}
             
-            <a 
+            {/* <a 
               href="#" 
               className="
                 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center
@@ -146,13 +155,13 @@ const Footer: React.FC = () => {
               "
             >
               <FaTwitter className="text-white" />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
       
       <div className="text-center text-gray-400 text-sm border-t border-gray-800 pt-8">
-        &copy; 2015 - 2025. Всі права захищено. <a href="#" className="text-secondary hover:text-accent transition-colors">Політика конфіденційності</a>
+        &copy; 2015 - {new Date().getFullYear()}. Всі права захищено. <a href="#" className="text-secondary hover:text-accent transition-colors">Політика конфіденційності</a>
       </div>
     </footer>
   );

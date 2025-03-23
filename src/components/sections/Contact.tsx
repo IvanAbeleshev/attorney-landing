@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
             
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.facebook.com/bykov.i.advocate" 
                 className="
                   w-12 h-12 bg-white/10 rounded-full flex items-center justify-center
                   transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
               </a>
               
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/ihor-bykov/" 
                 className="
                   w-12 h-12 bg-white/10 rounded-full flex items-center justify-center
                   transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
@@ -69,7 +69,7 @@ const Contact: React.FC = () => {
               </a>
               
               <a 
-                href="#" 
+                href="https://www.instagram.com/ihor_bykov/" 
                 className="
                   w-12 h-12 bg-white/10 rounded-full flex items-center justify-center
                   transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
               </a>
               
               <a 
-                href="#" 
+                href="https://t.me/Bykov_Ihor" 
                 className="
                   w-12 h-12 bg-white/10 rounded-full flex items-center justify-center
                   transition-all duration-500 hover:bg-secondary hover:-translate-y-1 hover:rotate-12
