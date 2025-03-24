@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     domains: ['placeholder.com'],
     formats: ['image/avif', 'image/webp'],
   },
+  output: 'standalone'
 };
 
 export default nextConfig;

@@ -1,0 +1,38 @@
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+nginx
+
+# Versioning
+.git
+.gitignore
+.github
+
+# Dependencies
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Next.js build output
+.next
+out
+
+# Testing
+coverage
+.nyc_output
+
+# Development tools
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.log
+*.tmp

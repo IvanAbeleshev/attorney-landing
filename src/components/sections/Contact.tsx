@@ -7,13 +7,11 @@ import ContactForm from '../ui/ContactForm';
 const Contact: React.FC = () => {
   return (
     <section id="contact" className="relative py-32 overflow-hidden">
-      {/* Background gradient */}
-      {/* <div className="absolute inset-0 bg-gradient-primary z-0"></div> */}
       
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="block text-lg font-medium text-white uppercase tracking-wider mb-2">
-            Зв'язатися зі мною
+            {"Зв'язатися зі мною"}
           </span>
           
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-white relative">

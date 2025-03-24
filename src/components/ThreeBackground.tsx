@@ -1,4 +1,3 @@
-// src/components/ThreeBackground.tsx
 'use client';
 
 import React, { useEffect, useRef } from 'react';
@@ -10,6 +9,7 @@ const ThreeBackground: React.FC = () => {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Capture the current value of the ref
     const container = containerRef.current;
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -76,6 +76,9 @@ const ThreeBackground: React.FC = () => {
     const windowHalfX = window.innerWidth / 2;
     const windowHalfY = window.innerHeight / 2;
     
+    // Mouse movement sensitivity - REDUCED from 0.001 to 0.0003 for slower movement
+    const mouseSensitivity = 0.0008;
+    
     const handleMouseMove = (event: MouseEvent) => {
       mouseX = (event.clientX - windowHalfX);
       mouseY = (event.clientY - windowHalfY);
@@ -86,14 +89,16 @@ const ThreeBackground: React.FC = () => {
     const animate = () => {
       requestAnimationFrame(animate);
       
-      targetX = mouseX * 0.001;
-      targetY = mouseY * 0.001;
+      // Using the reduced sensitivity factor for slower movement
+      targetX = mouseX * mouseSensitivity;
+      targetY = mouseY * mouseSensitivity;
       
       particlesMesh.rotation.x += 0.0005;
       particlesMesh.rotation.y += 0.0003;
       
-      particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.02;
-      particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.02;
+      // Also reduced the lerp factor from 0.02 to 0.01 for even smoother transition
+      particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.01;
+      particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.01;
       
       renderer.render(scene, camera);
     };
@@ -116,8 +121,9 @@ const ThreeBackground: React.FC = () => {
       document.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       
-      if (containerRef.current) {
-        containerRef.current.removeChild(renderer.domElement);
+      // Use the captured container variable instead of containerRef.current
+      if (container) {
+        container.removeChild(renderer.domElement);
       }
       
       scene.remove(particlesMesh);
