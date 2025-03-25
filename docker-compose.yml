@@ -9,9 +9,6 @@ services:
     restart: always
     expose:
       - "3000"
-    volumes:
-      - ./src:/app/src
-      - ./public:/app/public
     networks:
       - app-network
   
@@ -21,15 +18,41 @@ services:
     restart: always
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./nginx/ssl:/etc/nginx/ssl
       - ./nginx/logs:/var/log/nginx
       - ./nginx/www:/var/www/html
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     depends_on:
       - nextjs
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/logs:/var/log/letsencrypt
+    restart: unless-stopped
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --quiet; sleep 12h & wait $${!}; done;'"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "certbot", "certificates"]
+      interval: 1d
+      timeout: 30s
+      retries: 3
 
 networks:
   app-network:
